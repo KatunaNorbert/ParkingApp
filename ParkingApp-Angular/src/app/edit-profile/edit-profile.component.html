@@ -1,0 +1,52 @@
+<app-header></app-header>
+    <div class="container-fluid d-flex align-items-center height-full">
+        <div class="container row main height-full width-full">
+            <div class="row width-full">
+                <form #form="ngForm" (ngSubmit)="update(form)" class="width-full">
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12">First name</label>
+                    <input required ngModel 
+                     pattern="[A-Za-z]{1,32}" name="firstname" 
+                     [(ngModel)]="u.name" class="col-xl-12 col-md-12 form-control" 
+                     type="text" id="exampleInputName" aria-describedby="emailHelp" placeholder="First name">
+                  </div>
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12">Surname</label>
+                    <input required ngModel 
+                     pattern="[A-Za-z]{1,32}" 
+                     name="surname" [(ngModel)]="u.surname"
+                     class="col-xl-12 col-md-12 form-control" 
+                     type="text" id="exampleInputSurname" aria-describedby="emailHelp" placeholder="Surname">
+                  </div>
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12">Email address</label>
+                    <input required ngModel 
+                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value="{{u.email}}"
+                     name="email" [(ngModel)]="u.email" class="col-xl-12 col-md-12 form-control" 
+                     type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email address">
+                  </div>
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12">Password</label>
+                    <input required ngModel 
+                     pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" 
+                     minlength="6" value="{{u.password}}"
+                     name="password" [(ngModel)]="u.password" class="col-xl-12 col-md-12 form-control" 
+                     type="password" id="exampleInputPassword" placeholder="Password">
+                  </div>
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12">Personal ID</label>
+                    <input required ngModel 
+                     pattern="[0-9]{10}" 
+                     minlength="10" value="{{u.id}}"
+                     name="id" [(ngModel)]="u.id" class="col-xl-12 col-md-12 form-control" 
+                     type="text" id="exampleInputId" placeholder="Id">
+                  </div>
+                  <div class="alert alert-danger" *ngIf="exists">You already registered</div>
+                  <div class="row verical-space">    
+                    <button [disabled]="form.invalid" type="submit" class="btn-style">Update</button>
+                  </div>      
+                </form>
+            </div>
+        </div>
+    </div>
+

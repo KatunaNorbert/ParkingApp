@@ -1,0 +1,30 @@
+<app-admin-header></app-admin-header>
+<div class="container-fluid">
+  <div class="container main search-section">
+    <div class="container search">
+        <div class="row">
+            <h2>Search for parking lot</h2>
+        </div>
+        <div class="row">
+            <form #searchForm="ngForm" (ngSubmit)="searchParkingLot(searchForm)">
+                <div class="form-group">
+                  <input type="search" required ngModel name="search" #search="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  class="form-control" id="search" placeholder="Enter location">
+                </div>
+                <div class="row dropdown" *ngIf="getpLots">
+                  <ul>
+                    <li class="col-xl-12 col-md-12 parkingLot" *ngFor="let p of pLots" (click)="setValues(p,form)">
+                      <div class="row">
+                          <span class="col-xl-6">{{p.name}}</span>
+                          <span class="col-xl-6">{{p.location}}</span>
+                      </div>      
+                    </li>  
+                  </ul> 
+                </div>
+                <div class="alert alert-danger" *ngIf="!pLotFound">Location doesn't exist</div>
+                <button class="col-xl-12 col-md-12 btn-style"  type="submit">Search</button>
+              </form>
+        </div>      
+    </div>
+  </div>
+</div>

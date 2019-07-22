@@ -1,0 +1,56 @@
+<app-admin-header></app-admin-header>
+<div class="container-fluid">
+  <div class="container main search-section">
+    <div class="row width-full">
+        <form class="width-full" #form="ngForm">
+          <div class="row form-group verical-space">
+              <div class="col-xl-12 col-sm-12">
+                <label class="col-xl-12 col-md-12">Name</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="Name"
+                      required [(ngModel)]=pLot.name name="name">      
+              </div>
+              <div class="col-xl-12">
+                <label class="col-xl-12 col-md-12">Town</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="Town"
+                      required [(ngModel)]=pLot.town name="town">
+              </div>
+          </div>
+          <div class="row form-group verical-space">
+              <div class="col-xl-12 col-sm-12">
+                <label class="col-xl-12 col-md-12">Latitude</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="Latitude"
+                      required [(ngModel)]=pLot.latitude name="latitude">     
+              </div>
+              <div class="col-xl-12 col-sm-12">
+                <label class="col-xl-12 col-md-12">Longitude</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="Longitude"
+                      required [(ngModel)]=pLot.longitude name="longitude">      
+              </div>
+          </div>
+          <div class="row form-group verical-space">
+              <div class="col-xl-12 col-sm-12">
+                <label class="col-xl-12 col-md-12">Number of spots</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="200"
+                      required [(ngModel)]=pLot.spotNr name="spotNr">
+              </div>
+              <div class="col-xl-12 col-sm-12">
+                <label class="col-xl-12 col-md-12">Price</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="4"
+                      required [(ngModel)]=pLot.price name="price">
+              </div>
+          </div>
+            <div class="row form-group verical-space">
+              <div class="col-xl-12">
+                <label class="col-xl-12 col-md-12">Location</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="Str..."
+                      required [(ngModel)]=pLot.location name="location" #location="ngModel">       
+              </div>
+          </div>
+          <div class="row verical-space" id="buttons">    
+            <button type="submit" class="col-xl-6 btn-style" [disabled]="form.invalid" (click)="update(form)">Update</button>
+            <button type="submit" class="col-xl-6 btn-delete" [disabled]="form.invalid"(click)="delete(form)">Delete</button>
+          </div>      
+        </form>
+    </div>
+  </div>
+</div>

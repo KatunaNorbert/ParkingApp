@@ -1,0 +1,80 @@
+<app-header></app-header>
+    <div class="container-fluid d-flex align-items-center height-full">
+        <div class="container row main height-full width-full">
+            <div class="logo row width-full">
+                <h1>ParkME</h1>
+            </div>
+            <div class="register row width-full">
+              <p>Register</p>
+            </div>
+            <div class="row width-full">
+                <form #form="ngForm" (ngSubmit)="login(form)" class="width-full">
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12">First name</label>
+                    <input required ngModel 
+                     pattern="[A-Za-z]{1,32}" name="firstname" 
+                     #firstname="ngModel" class="col-xl-12 col-md-12 form-control" 
+                     type="text" id="exampleInputName" aria-describedby="emailHelp" placeholder="First name">
+                    <div class="alert alert-danger" *ngIf="firstname.touched && !firstname.valid">
+                      <div *ngIf="firstname.errors.required">Name is required</div>
+                      <div *ngIf="firstname.errors.pattern">Invalid name format</div>
+                    </div>
+                  </div>
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12">Surname</label>
+                    <input required ngModel 
+                     pattern="[A-Za-z]{1,32}"
+                     name="surname" #surname="ngModel"
+                     class="col-xl-12 col-md-12 form-control" 
+                     type="text" id="exampleInputSurname" aria-describedby="emailHelp" placeholder="Surname">
+                    <div class="alert alert-danger" *ngIf="surname.touched && !surname.valid">
+                      <div *ngIf="surname.errors.required">Surname is required</div>
+                      <div *ngIf="surname.errors.pattern">Invalid surname format</div>
+                    </div>
+                  </div>
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12">Email address</label>
+                    <input required ngModel 
+                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+                     name="email" #email="ngModel" class="col-xl-12 col-md-12 form-control" 
+                     type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email address">
+                    <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                      <div *ngIf="email.errors.required">Email is required</div>
+                      <div *ngIf="email.errors.pattern">Invalid email format</div>
+                    </div>
+                  </div>
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12">Password</label>
+                    <input required ngModel 
+                     pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" 
+                     minlength="6"
+                     name="password" #password="ngModel" class="col-xl-12 col-md-12 form-control" 
+                     type="password" id="exampleInputPassword" placeholder="Password">
+                    <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                      <div *ngIf="password.errors.required">Password is required</div>
+                      <div *ngIf="password.errors.pattern">Invalid password format</div>
+                      <div *ngIf="password.errors.minlength">Password must be longer than 6</div>
+                    </div>
+                  </div>
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12">Personal ID</label>
+                    <input required ngModel 
+                     pattern="[0-9]{10}" 
+                     minlength="10"
+                     name="id" #id="ngModel" class="col-xl-12 col-md-12 form-control" 
+                     type="text" id="exampleInputPassword" placeholder="Id">
+                    <div class="alert alert-danger" *ngIf="id.touched && !id.valid">
+                      <div *ngIf="id.errors.required">Id is required</div>
+                      <div *ngIf="id.errors.pattern">Invalid id format</div>
+                      <div *ngIf="id.errors.minlength">Id must be longer than 10</div>
+                    </div>
+                  </div>
+                  <div class="alert alert-danger" *ngIf="exists">You already registered</div>
+                  <div class="row verical-space">    
+                    <button [disabled]="form.invalid" type="submit" class="btn-style">Submit</button>
+                  </div>      
+                </form>
+            </div>
+        </div>
+    </div>
+

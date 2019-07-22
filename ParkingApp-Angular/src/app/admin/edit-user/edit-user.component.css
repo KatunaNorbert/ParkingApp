@@ -1,0 +1,148 @@
+form{
+    width: 100%;
+}
+
+.search{
+    padding-top: 80px ;
+    padding-bottom: 40px ;
+    
+}
+
+.search-section{
+    color: white;
+    min-height: 75vh;
+}
+
+.btn-style,.btn-update,.btn-delete{
+    font-size: 18px;
+    padding: 5px 20px;
+    color: #fff;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-style{
+    background-color:dodgerblue;
+}
+
+.btn-delete{
+    color:white;
+    background-color:red;
+}
+
+
+form .row{
+    padding: 0 30px;
+}
+
+label{
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    color: #fff;
+}
+
+.main {
+    background-color: rgba(51, 110, 123, 1);
+    opacity: 0.95;
+    width: 50%;
+    height: 100%;
+    padding: 0 100px;
+    margin: auto;
+}
+
+#buttons{
+    padding-top: 30px;
+}
+
+.container-fluid{
+    background-image: url(../../images/background-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0;
+}
+
+#content{
+    margin: 0px auto; 
+    width:80%; 
+    padding-top: 40px;
+    height: 50px;
+}
+
+#diacritics{
+    color:#fff;
+}
+
+.dropdown li{
+    background-color: #fff;
+    color: black;
+    margin: 10px 0;
+    padding: 5px 0;
+    border-radius: 3%;
+    list-style: none;
+    height: 35px;
+
+}
+
+.form-group{
+    margin-bottom: 0;
+}
+
+.dropdown ul{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    max-height: 180px;
+    overflow: scroll;
+}
+
+.dropdown li span{
+    text-align: center;
+}
+
+.dropdown li:hover{
+    background-color: dodgerblue;
+    color: black;
+}
+
+@media only screen and (max-width: 600px) {
+    .container-fluid{
+        width: 100%;
+        padding: 0;
+        height: 100%;
+        margin: 0;
+    }
+    .main{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    label{
+        text-align: center;
+        font-size: 28px;
+    }
+
+    input{
+        text-align: center;
+        font-size: 24px;
+    }
+
+    h2{
+        font-size: 32px;
+        text-align: center;
+        padding: 30px;
+        width: 100%;
+    }
+
+    .search{
+        padding-top: 0;
+    }
+
+    .btn-style,.btn-add,.btn-delete{
+       height: 50px;
+       font-size: 24px;
+    }
+  }

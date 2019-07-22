@@ -1,0 +1,44 @@
+
+    <app-header></app-header>
+    <div class="container-fluid d-flex align-items-center height-full">
+        <div class="container row main height-full width-full">
+            <div class="row logo width-full">
+                <h1>ParkME</h1>
+            </div>
+            <div class="row login width-full">
+              <p>Login</p>
+            </div>
+            <div class="row form width-full">
+                <form #form="ngForm" (ngSubmit)="login(form)" class="width-full">
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12" for="exampleInputEmail1">Email address</label>
+                    <input required ngModel 
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+                      name="email" #email="ngModel" class="col-xl-12 col-md-12 form-control" 
+                      type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                      <div *ngIf="email.errors.required">Email is required</div>
+                      <div *ngIf="email.errors.pattern">Invalid email format</div>
+                    </div>
+                  </div>
+                  <div class="row form-group verical-space">
+                    <label class="col-xl-12 col-md-12" for="exampleInputPassword1">Password</label>
+                    <input required minlength="6" 
+                      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" ngModel 
+                      name="password" #password="ngModel" class="col-xl-12 col-md-12 form-control" 
+                      type="password" id="exampleInputPassword1" placeholder="Password">
+                    <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                      <div *ngIf="password.errors.required">Password is required</div>
+                      <div *ngIf="password.errors.pattern">Invalid password format</div>
+                      <div>Password must be longer than 6</div>
+                    </div>
+                  </div>
+                  <div class="alert alert-danger" *ngIf="LogError">Wrong email or password</div>
+                  <div class="row verical-space">    
+                    <button [disabled]="form.invalid" type="submit" class="btn-style">Submit</button>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+

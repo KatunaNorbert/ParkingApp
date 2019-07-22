@@ -1,0 +1,103 @@
+
+/* Search form*/
+form{
+    width: 100%;
+}
+
+.search{
+    width: 50%;
+    padding-top: 80px !important;
+    
+}
+
+.show{
+    width: 50%;
+    margin-top: 80px;
+}
+
+.search-section{
+    background-image: url(../images/background-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 95vh;
+}
+
+.btn-style{
+    font-size: 18px;
+    padding: 5px 20px;
+    color: #fff;
+    background-color:dodgerblue;
+    margin: auto;
+    width: 100%;
+}
+
+.search li{
+    list-style: none;
+    height: 30px;
+}
+
+/* Parking filter*/
+.parking-filter li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 0;
+}
+
+.parking-filter{
+    padding: 0;
+}
+
+.show li:hover{
+    background-color: rgb(82, 147, 161);
+    color: black;
+}
+
+.show .active{
+    background-color: rgba(51, 110, 123, 1);
+}
+
+.show .active a,.show li:hover a{
+    color: white;
+    text-decoration: none;
+} 
+
+/* Parkin places*/
+
+.parking-places li{
+    border-radius: 10px;
+    list-style: none;
+    padding: 10px 0;
+    margin: 10px auto;
+    background-color: rgba(51, 110, 123, 1);
+    color: white;
+}
+
+.parking-places {
+    padding: 0;
+    max-height: 350px;
+    overflow: scroll;
+}
+
+.parking-places span{
+    text-align: center;
+}
+
+.show{
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+@media only screen and (max-width: 992px){
+    /* Search form*/
+    .search,.show{
+        width: 100%;
+    }
+    
+    .search h2{
+        text-align: center;
+    }
+
+    .parking-filter{
+        border-bottom: 2px rgba(51, 110, 123, 1) solid;
+    }
+}

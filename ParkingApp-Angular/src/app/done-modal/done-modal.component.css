@@ -1,0 +1,22 @@
+.modal-body div span{
+    font-size: 50px;
+}
+
+.modal-body div{
+    max-height: 400px;
+}
+
+.body{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.modal-header{
+    background-color: lawngreen;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: center;
+}

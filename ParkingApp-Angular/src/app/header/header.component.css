@@ -1,0 +1,77 @@
+/* Style for the header menu */
+.main-menu li{
+    margin-left: 28px;
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    font-family: 'Righteous', cursive;
+}
+
+.main-menu a:hover{
+    opacity: 0.5;
+}
+
+.navbar-brand:hover{
+    opacity: 0.8;
+}
+
+.main-menu a{
+    color: rgba(44, 130, 201, 1);
+    margin: auto;
+    font-size: 15px;
+}
+
+/* Editing the sandwich button*/
+.main-menu .navbar-toggler{
+    border: 1px solid #fff;
+    margin-left: auto;
+    position: absolute;
+    top: -40px;
+    right: 18px;
+}
+
+.main-menu .navbar-toggler-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+#Login,#Logout:hover{
+    cursor: -webkit-grab;
+     cursor: grab;
+}
+
+@media only screen and (max-width: 992px){
+    /* For tablet,phone: */
+    
+    /* Style for the header menu */
+    .main-menu ul{
+        margin-top: 40px;
+    }
+
+    .main-menu ul li{
+        margin-bottom: 20px;
+        margin-left: 0;
+        border: 1px solid rgba(44, 130, 201, 1);
+    }
+
+    .main-menu ul li:hover{
+       border: 0;
+       background-color: rgba(44, 130, 201, 1);
+    }
+
+    .main-menu a{
+        font-size: 18px;
+    }
+
+    .main-menu li a:hover{
+        color: #fff;
+    }
+
+    .get-in-touch{
+        border: 0px;
+        padding: 8px;
+    }
+}

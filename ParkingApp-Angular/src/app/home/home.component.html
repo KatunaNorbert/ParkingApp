@@ -1,0 +1,34 @@
+<app-header></app-header>
+   <div class="container-fluid search-section">
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+        <div class="container search">
+            <div class="row">
+                <h2>Search for your parking place</h2>
+            </div>
+            <div class="row">
+            <form #form="ngForm" (ngSubmit)="searchSpot(form)">
+              <div class="form-group">
+                <input required ngModel name="search" #search="ngModel" type="text" class="form-control" placeholder="Where do you want to park?">
+              </div>
+              <button [disabled]="form.invalid" type="submit" class="btn-style">Search</button>
+            </form>
+            </div>      
+        </div>
+        <div class="container show">
+            <ul class="row parking-filter">
+                <li class="col-lg-6 col-md-6 col-sm-12 active" id="nearby" (click)="getNearby()"><a>NEARBY</a></li>
+                <li class="col-lg-6 col-md-6 col-sm-12" id="all" (click)="getAll()"><a>ALL</a></li>
+            </ul>
+            <ul class="row parking-places">
+                <li class="col-12" *ngFor="let pLot of parkingLots" (click)="verifyLog(pLot.location)">
+                    <div class="row">
+                        <span class="location col-12">{{pLot.location}}<span class="town">,{{pLot.town}}</span></span>
+                        <span class="distance col-6">{{pLot.spot_number}} spots</span>
+                        <span class="money col-6">{{pLot.price}}lei/h</span>
+                    </div>       
+                </li>  
+            </ul>
+        </div>
+        <div class="row verical-space" id="profile">    
+        </div>
+    </div>

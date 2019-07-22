@@ -1,0 +1,153 @@
+span{
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+
+.profile-section{
+    background-image: url(../images/background-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.container-fluid{
+    padding: 100px 0;
+}
+
+.profile{
+    width: 80%;
+    background-color: rgba(51, 110, 123, 1);
+    min-height: 80vh;
+}
+
+.profile .span{
+    font-size: 30px;
+}
+
+.profile .row{
+    padding: 20px;
+}
+
+#parking-places{
+    padding: 0px;
+    max-height: 430px;
+    overflow: scroll;
+    height: 100%;
+}
+
+#parking-places li div{
+    padding: 0px;
+}
+
+#parking-places li{
+    list-style-type: none;
+    border: 0.5px solid black;
+    border-radius: 10px;
+    padding: 10px 0;
+    margin: 10px 0;
+    background-color: rgba(1, 50, 67, 1);
+    height: 50%;
+}
+
+#parking-places li span{
+    padding: 5px;
+}
+
+#parking-places .message{
+    height: 100%;
+    font-size: 30px;
+    margin-top: 20vh;
+}
+
+.personal-data span{
+    margin-left: none;
+}
+
+
+.title{
+    text-align: center;
+    color: #fff;
+}
+
+.code{
+    margin-top: 20px;
+    width: 20%;
+    height: 80%;
+}
+
+.code-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.test-class{
+    margin: 0;
+    padding: 0;
+}
+
+.modal-body{
+    display: flex;
+    justify-content: start;
+    height: 500px;
+    width: 600px;
+}
+
+.button{
+    font-size: 18px;
+    padding: 8px 20px;
+    color: #fff;
+    background-color:rgba(44, 62, 80, 1);
+    margin: auto;
+    width: 100%;
+    border: none;
+    border-radius: 5;
+}
+
+@media only screen and (max-width: 600px) {
+    .title{
+        margin-top: 80px;
+        font-size: 34px;
+        color: black;
+    }
+
+    .row{
+        padding: 0;
+    }
+
+    .profile{
+        width: 100%;
+    }
+
+    .container-fluid{
+        padding: 0;
+    }
+
+    .code{
+        margin: 0;
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 50px;
+    }
+
+    button{
+        width: 80%;
+        height: 50px;
+        margin: auto;
+    }
+
+    span{
+        font-size: 28px;
+    }
+
+    #parking-places li{
+        height: 100%;
+    }
+
+    #parking-places .message{
+        margin-top: 0;
+    }
+  }

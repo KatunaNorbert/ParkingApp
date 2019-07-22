@@ -1,0 +1,49 @@
+<app-header></app-header>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+<div class="container-fluid reserve-section d-flex align-items-center height-full">
+  <div class="container row  main height-full width-full">
+      <div class="row width-full">
+          <form  #form="ngForm" class="col-xl-6 col-12 width-full">
+            <div class="parking row">
+                <span class="location col-xl-12">{{parkingLot.location}},<span>{{parkingLot.town}}</span></span>
+            </div>
+            <div class="row form-group verical-space">
+              <label class="col-xl-12 col-md-12">Arriving</label>
+              <input *ngIf="this.extend==false" type="text" required ngModel [(ngModel)]="startDate" name="startdate" class="form-control" placeholder="StartDate" bsDatepicker (bsValueChange)="saveAreavingDate($event)" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY',  selectFromOtherMonth: true }"
+              [minDate]="currentDate" [maxDate]="maxDate" class="form-control col-xl-6 col-md-6">
+              <input *ngIf="this.extend!=false" type="text" required ngModel [(ngModel)]="startDate" name="startdate" class="form-control" placeholder="StartDate" bsDatepicker (bsValueChange)="saveAreavingDate($event)" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY',  selectFromOtherMonth: true }"
+              [minDate]="currentDate" [maxDate]="maxDate" class="form-control col-xl-6 col-md-6" disabled>
+              <ng-template #popTemplate1>
+                  <timepicker  [(ngModel)]="startTime" name="start" [minuteStep]="30" [showMeridian]="true" ></timepicker>
+                </ng-template>
+                <input required  *ngIf="this.extend==false" class="col-xl-6 col-md-6" [ngModel]="startTime | date:'hh:mm aa'" name="startTime" (ngModelChange)="startTime=$event" [popover]="popTemplate1" [outsideClick]="true" placement="bottom" />
+                <input required *ngIf="this.extend!=false" class="col-xl-6 col-md-6" [ngModel]="startTime | date:'hh:mm aa'" name="startTime" (ngModelChange)="startTime=$event" [popover]="popTemplate1" [outsideClick]="true" placement="bottom" disabled /> 
+              <label class="col-xl-12 col-md-12">Leaving</label>
+              <input type="text" required ngModel [(ngModel)]="endDate" name="enddate" class="form-control" placeholder="EndDate" bsDatepicker (bsValueChange)="saveLeavingDate($event)" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY',  selectFromOtherMonth: true }"
+              [minDate]="startDate" [maxDate]="maxDate" class="form-control col-xl-6 col-md-6">
+              <ng-template #popTemplate2>
+                  <timepicker [(ngModel)]="endTime" [minuteStep]="30" name="endTime" (mouseleave) ="updatePrice()" [showMeridian]="true"></timepicker>
+                </ng-template>
+                <input required class="col-xl-6 col-md-6" [ngModel]="endTime | date:'hh:mm aa'" name="end" (ngModelChange)="endTime=$event" [popover]="popTemplate2" [outsideClick]="true" placement="bottom" />
+              <div class="alert alert-danger" *ngIf="date2<=date1">
+                  <div class="col-xl-12 col-md-12">Leaving date must be after Arriving date</div>
+              </div>  
+            </div>
+            <div class="row verical-space">
+              <span class="col-xl-5 col-6 btn-price">{{this.currentPrice}}lei/h</span>
+              <span class="col-xl-5 col-6 btn-price" *ngIf="this.freeSpots>0">{{this.freeSpots}} free spots</span>
+              <span class="col-xl-5 col-6 btn-noFreeSpots" *ngIf="this.freeSpots==0">{{this.freeSpots}} free spots</span>
+            </div>
+            <div *ngIf="this.extend==false" class="row verical-space">
+              <button [disabled]="form.invalid" (click)="reserve(form)" class="col-xl-6 btn-style">Reserve</button>
+            </div>
+            <div *ngIf="this.extend!=false" class="row verical-space">
+              <button [disabled]="date2<=date1" (click)="extendRes()" class="col-xl-6 btn-style">Extend</button>
+            </div>       
+          </form>
+          <div class="col-xl-6 col-12" id="map">
+              <div class='pointer'></div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+form{
+    width: 100%;
+}
+
+.search{
+    padding-top: 80px;
+    padding-bottom: 40px;
+    
+}
+
+.search-section{
+    color: white;
+    min-height: 95vh;
+}
+
+.btn-add{
+    font-size: 18px;
+    padding: 5px 20px;
+    color: #fff;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-add{
+    background-color:greenyellow;
+    color: #fff;
+}
+
+form .row{
+    padding: 0 30px;
+}
+
+label{
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    color: #fff;
+}
+
+.main {
+    background-color:rgba(51, 110, 123, 1);
+    opacity: 0.95;
+    width: 50%;
+    height: 80%;
+    padding: 0 100px;
+    margin: auto;
+}
+
+#buttons{
+    padding-top: 30px;
+}
+
+.container-fluid{
+    background-image: url(../../images/background-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0;
+}
+
+#content{
+    margin: 0px auto; 
+    width:80%; 
+    padding-top: 40px;
+    height: 50px;
+}
+
+#diacritics{
+    color:#fff;
+}
+
+.form-group{
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .container-fluid{
+        width: 100%;
+        padding: 0;
+        height: 100%;
+        margin: 0;
+    }
+    .main{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    label{
+        text-align: center;
+        font-size: 28px;
+    }
+
+    input{
+        text-align: center;
+        font-size: 24px;
+    }
+
+    h2{
+        font-size: 32px;
+        text-align: center;
+        padding: 30px;
+        width: 100%;
+    }
+
+    .search{
+        padding-top: 0;
+    }
+
+    .btn-add{
+       height: 50px;
+       font-size: 24px;
+    }
+  }

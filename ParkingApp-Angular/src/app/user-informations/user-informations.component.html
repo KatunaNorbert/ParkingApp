@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="container-fluid profile-section">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+  <div class="container profile">
+    <div class="row show">
+        <div class="col-xl-6 personal-data">
+            <div class="row">
+                <h2 class="col-xl-12 title">My data</h2>
+            </div>
+            <div class="row">
+                <span class="col-xl-6 col-6">Name</span>
+                <span class="col-xl-6 col-6">{{user.name}}</span>
+            </div>
+            <div class="row">
+                <span class="col-xl-6 col-6">Surname</span>
+                <span class="col-xl-6 col-6">{{user.surname}}</span>
+            </div>
+            <div class="row">
+                <span class="col-xl-6 col-12">Email</span>
+                <span class="col-xl-6 col-12">{{user.email}}</span>
+            </div>
+            <div class="row">
+                <span class="col-xl-6 col-12">ID</span>
+                <span class="col-xl-6 col-12">{{user.id}}</span>
+            </div>
+            <div class="row">
+                <button class="col-xl-6 col-12 button" (click)="edit()">Edit</button>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="row">
+                <h2 class="col-xl-12 title title-reservations">My reservations</h2>
+            </div>
+            <ul class="row" id="parking-places" *ngIf="!(reservations.length > 0)">
+                <span class="col-xl-12 col-12 message">You have no reservations</span>
+            </ul>
+            <ul class="row" id="parking-places" *ngIf="reservations.length > 0">
+                    <li class="col-12" *ngFor="let res of reservations">
+                        <div class="row">
+                            <span class="location col-12">{{res.pLot.location}}<span class="town">{{res.pLot.name}}</span></span>
+                            <span class="col-xl-5 col-5">{{res.start | date:'MM-dd hh:mm'}}</span>
+                            <span class="col-xl-2 col-2">--></span>
+                            <span class="col-xl-5 col-5">{{res.end | date:'MM-dd hh:mm'}}</span>
+                            <span class="money col-xl-6 col-12">{{res.pLot.price}} lei/h</span>
+                            <button class="col-xl-2 btn btn-success" (click)="extendReservation(res.pLot.location,res.end,res.id)">Extend</button>
+                            <button class="col-xl-2 btn btn-danger" (click)="deleteReservation(res.id)">Cancel</button>
+                            <div class="col-xl-12 code-container">
+                                <button class="code btn btn-dark" (click)="open(res.start,res.end,res.pLot.location)">Ticket</button>
+                            </div>
+                        </div>       
+                    </li>
+                </ul>
+        </div>        
+    </div>
+</div>

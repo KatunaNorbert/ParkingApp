@@ -1,0 +1,82 @@
+<app-admin-header></app-admin-header>
+<div class="container-fluid">
+  <div class="container main search-section">
+    <div class="row width-full">
+        <form class="width-full" #form="ngForm">
+          <div class="row form-group verical-space">
+              <div class="col-xl-12 col-sm-12">
+                <label class="col-xl-12 col-md-12">Name</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="Name"
+                      required ngModel pattern="[A-Za-z]{1,32}" name="name" #name="ngModel">
+                <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+                    <div *ngIf="name.errors.required">Name is required</div>
+                    <div *ngIf="name.errors.pattern">Invalid name format</div>
+                </div>       
+              </div>
+              <div class="col-xl-12">
+                <label class="col-xl-12 col-md-12">Town</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="Town"
+                      required ngModel pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$" name="town" #town="ngModel">
+                <div class="alert alert-danger" *ngIf="town.touched && !town.valid">
+                    <div *ngIf="town.errors.required">Town is required</div>
+                    <div *ngIf="town.errors.pattern">Invalid town format</div>
+                </div> 
+              </div>
+          </div>
+          <div class="row form-group verical-space">
+              <div class="col-xl-12 col-sm-12">
+                <label class="col-xl-12 col-md-12">Latitude</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="Latitude"
+                      required ngModel pattern="^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}" name="latitude" #latitude="ngModel">
+                <div class="alert alert-danger" *ngIf="latitude.touched && !latitude.valid">
+                    <div *ngIf="latitude.errors.required">Latitude is required</div>
+                    <div *ngIf="latitude.errors.pattern">Invalid latitude format</div>
+                </div>        
+              </div>
+              <div class="col-xl-12 col-sm-12">
+                <label class="col-xl-12 col-md-12">Longitude</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="Longitude"
+                      required ngModel pattern="^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}" name="longitude" #longitude="ngModel"> 
+                <div class="alert alert-danger" *ngIf="longitude.touched && !longitude.valid">
+                    <div *ngIf="longitude.errors.required">Latitude is required</div>
+                    <div *ngIf="longitude.errors.pattern">Invalid latitude format</div>
+                </div>       
+              </div>
+          </div>
+          <div class="row form-group verical-space">
+              <div class="col-xl-12 col-sm-12">
+                <label class="col-xl-12 col-md-12">Number of spots</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="200"
+                      required ngModel pattern="[0-9]{1,4}" name="spotNr" #spotNr="ngModel">
+                <div class="alert alert-danger" *ngIf="spotNr.touched && !spotNr.valid">
+                    <div *ngIf="spotNr.errors.required">Number of spots is required</div>
+                    <div *ngIf="spotNr.errors.pattern">Invalid format</div>
+                </div>
+              </div>
+              <div class="col-xl-12 col-sm-12">
+                <label class="col-xl-12 col-md-12">Price</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="4"
+                      required ngModel pattern="[0-9]{1,2}" name="price" #price="ngModel">
+                <div class="alert alert-danger" *ngIf="price.touched && !price.valid">
+                    <div *ngIf="price.errors.required">Price is required</div>
+                    <div *ngIf="price.errors.pattern">Invalid price format</div>
+                </div>
+              </div>
+          </div>
+            <div class="row form-group verical-space">
+              <div class="col-xl-12">
+                <label class="col-xl-12 col-md-12">Location</label>
+                <input class="col-xl-12 col-md-12 form-control" type="text" placeholder="Str..."
+                      required ngModel name="location" #location="ngModel">
+                <div class="alert alert-danger" *ngIf="location.touched && !location.valid">
+                    <div *ngIf="location.errors.required">Location is required</div>
+                </div>       
+              </div>
+          </div>
+          <div class="row verical-space" id="buttons">    
+            <button type="submit" class="col-xl-12 btn-add" [disabled]="form.invalid" (click)="add(form)">Add</button>
+          </div>      
+        </form>
+    </div>
+  </div>
+</div>

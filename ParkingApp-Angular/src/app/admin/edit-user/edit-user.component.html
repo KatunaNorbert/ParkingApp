@@ -1,0 +1,85 @@
+<app-admin-header></app-admin-header>
+<div class="container-fluid">
+<div class="container main search-section">
+  <div class="container search">
+      <div class="row">
+          <h2>Search for user by email</h2>
+      </div>
+      <div class="row">
+      <form #searchForm="ngForm" (ngSubmit)="searchUser(searchForm)">
+        <div class="form-group">
+          <input type="search" required ngModel name="search" #search="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          class="form-control" id="search" placeholder="Enter user email">
+        </div>
+        <div class="row dropdown" *ngIf="getUsers">
+          <ul>
+            <li class="col-xl-12 col-md-12" *ngFor="let u of users" (click)="setValues(u,form)">
+              <div class="row">
+                  <span class="col-xl-6">{{u.name}}</span>
+                  <span class="col-xl-6">{{u.email}}</span>
+              </div>      
+            </li>  
+          </ul> 
+        </div>
+        <div class="alert alert-danger" *ngIf="!userFound">User doesn't exist</div>
+        <button class="col-xl-12 col-md-12 btn-style"  type="submit">Search</button>
+      </form>
+      </div>      
+  </div>
+  <div class="row width-full">
+    <form #form="ngForm" class="width-full">
+      <div class="row form-group verical-space">
+        <label class="col-xl-12 col-md-12">First name</label>
+        <input required ngModel 
+         pattern="[A-Za-z]{1,32}" name="firstname" 
+         #firstname="ngModel" class="col-xl-12 col-md-12 form-control" 
+         type="text" id="exampleInputName" aria-describedby="emailHelp" placeholder="Firstname">
+        <div class="alert alert-danger" *ngIf="firstname.touched && !firstname.valid">
+          <div *ngIf="firstname.errors.required">Name is required</div>
+          <div *ngIf="firstname.errors.pattern">Invalid name format</div>
+        </div>
+      </div>
+      <div class="row form-group verical-space">
+        <label class="col-xl-12 col-md-12">Surname</label>
+        <input required ngModel 
+         pattern="[A-Za-z]{1,32}"
+         name="surname" #surname="ngModel"
+         class="col-xl-12 col-md-12 form-control" 
+         type="text" id="exampleInputSurname" aria-describedby="emailHelp" placeholder="Surname">
+        <div class="alert alert-danger" *ngIf="surname.touched && !surname.valid">
+          <div *ngIf="surname.errors.required">Surname is required</div>
+          <div *ngIf="surname.errors.pattern">Invalid surname format</div>
+        </div>
+      </div>
+      <div class="row form-group verical-space">
+        <label class="col-xl-12 col-md-12">Email address</label>
+        <input required ngModel 
+         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+         name="email" #email="ngModel" class="col-xl-12 col-md-12 form-control" 
+         type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email address">
+        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.pattern">Invalid email format</div>
+        </div>
+      </div>
+      <div class="row form-group verical-space">
+        <label class="col-xl-12 col-md-12">Password</label>
+        <input required ngModel 
+         pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" 
+         minlength="6"
+         name="password" #password="ngModel" class="col-xl-12 col-md-12 form-control" 
+         type="password" id="exampleInputPassword" placeholder="Password">
+        <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.pattern">Invalid password format</div>
+          <div *ngIf="password.errors.minlength">Password must be longer than 6</div>
+        </div>
+      </div>
+      <div class="row verical-space" id="buttons">    
+        <button type="submit" class="col-xl-6 btn-style" [disabled]="form.invalid" (click)="update(form)">Update</button>
+        <button type="submit" class="col-xl-6 btn-delete" [disabled]="form.invalid"  (click)="delete(form)">Delete</button>
+      </div>      
+      </form>
+  </div>
+</div>
+</div>
